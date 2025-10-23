@@ -1,8 +1,8 @@
-drop database if exists pfs37;
+drop database if exists JFS41;
 
-create database pfs37;
+create database JFS41;
 
-use pfs37;
+use JFS41;
 
 create table dept(
   deptno int,
