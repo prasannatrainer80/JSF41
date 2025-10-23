@@ -1,0 +1,202 @@
+-- Display all databases in current MySQL instance
+
+show databases;
+
+-- Change to JFS41 database 
+
+use JFS41;
+
+-- Display List of tables in current db
+
+show tables;
+
+-- Display Info about Dept table 
+
+DESC Dept;
+
+-- Display Info about Emp table 
+
+DESC Emp;
+
+-- Display all records from Dept table
+
+select * from Dept;
+
+-- Display all records from Emp table
+
+select * from Emp;
+
+-- Display Empno,Ename,job,sal,comm,mgr from Emp table 
+
+select Empno,Ename,Job,Sal,Comm,Mgr
+from Emp;
+
+-- Display Deptno,Dname from Dept table 
+
+select Deptno,Dname from Dept;
+
+-- WHERE Clause : Used to filter the table records 
+
+-- Display info whose empno is 7839;
+
+select * from Emp where empno = 7839;
+
+-- Display info whose name is 'SCOTT' 
+
+select * from Emp where Ename='SCOTT';
+
+-- Display Info whose name is 'FORD' 
+
+-- Display info whose job is 'MANAGER'
+
+select * from EMP WHERE JOB='MANAGER';
+
+-- Display Info whose JOB is 'CLERK'
+
+-- Display Info whose job is 'CLERK' and Sal >= 1000;
+
+select * from Emp where JOB='CLERK' AND SAL >= 1000;
+
+-- BETWEEN...AND : Display Info from start to end range. 
+
+select * from EMP WHERE SAL BETWEEN 1000 and 3000;
+
+select * from EMP WHERE SAL NOT BETWEEN 1000 and 3000;
+
+-- IN Clause : Used to check for multiple attribute values. 
+
+-- Display info whose JOB is 'CLERK' or 'MANAGER' or 'SALESMAN'
+
+select * from Emp where JOB IN('CLERK','MANAGER','SALESMAN');
+
+select * from Emp where JOB NOT IN('CLERK','MANAGER','SALESMAN');
+
+-- Display info whose Empno is 7900 or 7839 or 7499 
+
+select * from Emp where EMPNO IN(7900,7839,7499);
+
+-- Dispaly info whose ename is SCOTT/FORD/KING/ADAMS
+
+-- LIKE Operators : Used to display data w.r.t. Wild cards (%,_) 
+
+-- Display info whose Ename starts with 'S'
+
+select * from Emp where ENAME LIKE 'S%';
+
+-- Display Info whose Ename ends with 'S'
+
+select * from EMP WHERE ENAME LIKE '%S';
+
+-- Display info whose names starts with J and 5th char is S
+
+select * from Emp WHERE ENAME LIKE 'J___S';
+
+-- Order By : Used to display Records w.r.t. Specific Field(s) in ascending or descending order. 
+
+select empno,ename,job,sal,comm from Emp order by ename;
+
+select empno,ename,job,sal,comm from Emp order by sal desc;
+
+select empno,ename,job,sal,comm from Emp order by Job,Ename;
+
+select empno,ename,job,sal,comm from Emp order by Job,Ename DESC;
+
+-- DISTINCT : Eliminates duplicate entries at the time of display 
+
+select distinct Job from Emp;
+
+
+select empno,Ename,job,sal,
+case JOB
+  WHEN 'CLERK' THEN 'Revathi'
+  WHEN 'SALESMAN' THEN 'SathWik'
+  WHEN 'ANALYST' THEN 'Venkat'
+  WHEN 'MANAGER' THEN 'Aslam'
+  WHEN 'PRESIDENT' THEN 'NO Manager'
+END 'Reporting'
+ from Emp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
