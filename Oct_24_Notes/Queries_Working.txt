@@ -57,6 +57,26 @@ select Empno,Ename,job,sal,comm,
 DENSE_RANK() OVER(Order By Sal DESC) 'RNO'
 From EMp;
 
+-> Display all records from Agent table
+
+-> Display AgentId, FirstName,LastName,City,Gender from Agent Table
+
+-> Display all records whose FirstName starts with 'S'
+
+-> Display all records whose gender is 'MALE'
+
+-> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus from Agent tab
+
+-> From above query define status as if maritalstatus 0 then 'unmarried'
+if maritalstatus is 1 then 'married'
+
+-> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus 
+sort by City and FirstName Basis
+
+-> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus
+Sort by Country wise ascending City Wise Descending
+
+
 
 
 
