@@ -1,0 +1,63 @@
+Write a Query ensure generate HeadOffice as
+
+for CLERK HeadOffice is CHENNAI
+for SALESMAN HeadOffice is Bangalore
+for MANAGER HeadOffice is Delhi
+for ANALYST HeadOffice is Hyderabad
+for PRESIDENT HeadOffice is ANY BRANCH
+
+select Empno,ename,job,sal,comm,
+case Job
+   WHEN 'CLERK' THEN 'CHENNAI'
+   WHEN 'SALESMAN' THEN 'BANGALORE'
+   WHEN 'MANAGER' THEN 'DELHI'
+   WHEN 'ANALYST' THEN 'HYDERABAD'
+   WHEN 'PRESIDENT' THEN 'ANY BRANCH'
+END 'HeadOffice'
+from Emp
+
+select Empno,Ename,job,sal,comm from Emp;
+
+select Empno,Ename,job,sal,comm,
+case 
+  WHEN COMM IS NULL THEN 0 ELSE COMM
+END 'Comm'
+ from Emp;
+
+
+select Empno,Ename,job,sal,comm,
+case 
+  WHEN COMM IS NULL THEN 0 ELSE COMM
+END 'Comm',
+CASE 
+ WHEN COMM IS NULL THEN SAL ELSE SAL+COMM
+END 'TakeHome'
+ from Emp;
+
+
+ROW_NUMBER() : Used to generate row_number() on the field specified
+
+select Empno,Ename,job,sal,comm,
+ROW_NUMBER() OVER(Order By Sal DESC) 'RNO'
+From EMp;
+
+select Empno,Ename,job,Sal,Comm,
+ROW_NUMBER() Over(Order By Job DESC) 'Rno'
+From EMp;
+
+RANK() : Used to generate rank on the field specified
+
+select Empno,Ename,job,sal,comm,
+RANK() OVER(Order By Sal DESC) 'RNO'
+From EMp;
+
+DENSE_RANK() : Used to generate sequential rank number
+
+select Empno,Ename,job,sal,comm,
+DENSE_RANK() OVER(Order By Sal DESC) 'RNO'
+From EMp;
+
+
+
+
+
