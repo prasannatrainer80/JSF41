@@ -64,17 +64,19 @@ From EMp;
 -> Display all records whose FirstName starts with 'S'
 
 -> Display all records whose gender is 'MALE'
-
 -> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus from Agent tab
-
 -> From above query define status as if maritalstatus 0 then 'unmarried'
 if maritalstatus is 1 then 'married'
-
 -> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus 
 sort by City and FirstName Basis
-
 -> Display AgentId,FirstName,LastName,City,Gender,MaritalStatus
 Sort by Country wise ascending City Wise Descending
+
+6) Display all records whose FirstName ends with 'a'
+
+7) Display All records sorted by City, MaritalStatus and FirstName Wise ascending order
+
+8) Display All Countrys with no duplicates 
 
 
 
