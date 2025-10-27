@@ -1,0 +1,148 @@
+Aggregate functions : 
+_____________________
+
+use JFS41;
+
+sum() : Generates sum value on the field specieid (numeric) 
+
+select sum(sal) from Emp;
+
+Avg() : Generates avg value on the field specified 
+
+select avg(sal) from Emp;
+
+max() : Generates max value on the field specified 
+
+select max(sal) from Emp;
+
+min() : Generates min. value on the field specified
+
+select min(sal) from Emp;
+
+count(*) : Display total no.of records of the particular able 
+
+select count(*) from Emp;
+
+
+select job,sum(sal) from Emp
+group by job;
+
+select job,avg(sal) from Emp
+group by job;
+
+select job,max(sal) from Emp
+group by job;
+
+select job,count(*) from Emp
+group by job;
+
+select Gender,count(*) 
+from Agent
+group by gender;
+
+select MaritalStatus,count(*) 
+from Agent
+group by MaritalStatus;
+
+select Country,count(*) 
+from Agent
+group by Country;
+
+select City,count(*) 
+from Agent
+group by City;
+
+-- HAVING Clause : Used to check the condition on aggregate fields. 
+
+What is the difference between WHERE clause and HAVING Clause 
+
+WHERE Clause used to check the conditions on Table Field(s), as HAVING clause used to check the condition on Aggregate Field(s).
+
+select job,sum(sal) from Emp
+group by job;
+
+Display info for which job total salary more than or equal to 5000
+
+select job,sum(sal) from Emp
+group by job
+having sum(sal) >= 5000;
+
+Display records in which job contains more than 1 employee 
+
+select job,count(*) from Emp
+group by job
+having count(*) >= 1;
+
+select city,count(*) from Agent
+group by city
+having count(*) > 1;
+
+select * from Emp order by ename
+where sal > 1000;
+
+select count(comm) from Emp;
+
+select job,sum(sal) 'total sal',
+   avg(sal) 'avg sal',
+   max(sal) 'max sal',
+   min(sal) 'min sal',
+   count(*) 'total employees' 
+from Emp 
+group by job;
+
+
+
+select job,sum(sal) 'total sal',
+   avg(sal) 'avg sal',
+   max(sal) 'max sal',
+   min(sal) 'min sal',
+   count(*) 'total employees' 
+from Emp 
+WHERE JOB IN('CLERK','MANAGER','PRSIDENT','ANALYST')
+group by job
+having count(*) > 1
+ORDER BY JOB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
