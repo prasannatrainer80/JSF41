@@ -1,0 +1,178 @@
+-- Aggregate Functions 
+
+use dads;
+
+sum() : Generates sum value on the table field specified 
+
+select sum(sal) from Emp;
+
+select sum(basic) from Employ;
+
+Avg() : Generates avg. value on the table field specified
+
+select avg(sal) from Emp;
+
+select avg(basic) from Emp;
+
+max() : Generates max. value 
+
+select max(basic) from Employ;
+
+select max(sal) from Emp;
+
+count(*) : Displays total no.of records of a particular table. 
+
+select count(*) from Emp;
+
+-- What will be output if i give 
+
+select count(comm) from Emp;
+
+-- Display count for which field comm value is not null. (Means how many not null records are there for comm field that count will be printed)
+
+-- Group By : Used to generate summary reports on the field specified. 
+
+select sum(sal) from Emp;
+
+select job from Emp;
+
+select job,sum(sal) from Emp
+group by job;
+
+select * from Employ;
+
+-- Generate dept-wise sum of Basic for Employ table 
+
+-- Display how many employees are working in each (dept) emp 
+
+select job,count(*) from EMp
+group by job;
+
+
+select * from Emp order by ename
+where sal >= 1000; -- Commad is wrong as order by comes always last. 
+
+select * from Emp where 
+job in ('CLERK','MANAGER','PRESIDENT')
+AND SAL >= 1000;
+
+____________________________________________________________________
+
+-- What is the output for the below queries.
+
+select * from Emp where sal < 1000;
+
+
+select * from Emp where sal < 1000 or sal >= 3000;
+
+select * from Emp where ENAME NOT IN('SCOTT','FORD','ADAMS');
+
+-- Display all records from Emp where Job is MANAGER/CLERK/SALEMAN
+and Salary Cross 1500;
+
+-- Display unique job details whose sal < 2000;
+
+-- Display All records whose name ends with 'D' 
+
+-- Display all records whose hiredate in year 1981 
+
+select * from Emp where year(hiredate)=1981;
+
+-- Display all records whose hiredite from 1981-09-06 to 1982-12-31
+
+select * from Emp where hiredate between '1981-09-06' AND '1982-12-31';
+
+-- Display all records who are hired between 1981 and 1987
+
+select * from Emp where year(hiredate) between 1981 and 1987;
+
+-- Display max salary whose job is 'CLERK'
+
+select max(sal) from Emp where job='CLERK';
+
+-- Display min. salary for 'ANALYST' job
+
+-- For Employ table, write a query as
+based on Dept field Generate Reporting as FOR Java 'Kishore'
+For Dotnet 'Anand'
+
+select Dept,
+CASE DEPT
+  WHEN 'Java' THEN 'KISHORE'
+  WHEN 'Dotnet' THEN 'ANAND'
+End 'Reporting'
+from employ;
+
+-- For Agent Table, ensure Generate Reporting as For Male Agents 'Floor 1'
+For Female Agents 'Floor 3'
+
+-- For Employ table, Generate Column as Bonus, for Java Bonus is 10000, 
+For Dotnet Bonus is 8000
+
+-- For Agent table, Based on Country wise, IF USA Reporting is 'Detroit'
+IF India Reporting is 'Bangalore'
+
+
+
+
+
+
+
+
+
+select dept from Employ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
