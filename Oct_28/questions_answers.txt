@@ -98,6 +98,18 @@ select addDate(
 addDate(adddate(curdate(),INTERVAL 3 YEAR),INTERVAL 4 MONTH)
 ,INTERVAL 5 DAY);
 
+-- Display the first day of the current month 
+
+select last_day(curdate());
+
+select addDate(last_day(curdate()),INTERVAL 1 DAY);
+
+select adddate(addDate(last_day(curdate()),INTERVAL 1 DAY),
+INTERVAL -1 MONTH);
+
+
+
+
 
 
 
