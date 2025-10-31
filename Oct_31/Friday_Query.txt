@@ -1,0 +1,36 @@
+
+select last_day(curdate()) 'Last-Day Month';
+
+select addDate(
+last_day(curdate())
+, INTERVAL 1 DAY);
+
+select addDate(
+addDate(
+last_day(curdate())
+, INTERVAL 1 DAY)
+, INTERVAL -1 MONTH);
+
+select dayofweek(
+addDate(
+addDate(
+last_day(curdate())
+, INTERVAL 1 DAY)
+, INTERVAL -1 MONTH));
+
+
+select addDate(
+addDate(
+addDate(
+last_day(curdate())
+, INTERVAL 1 DAY)
+, INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayOfWeek(
+addDate(
+addDate(
+last_day(curdate())
+, INTERVAL 1 DAY)
+, INTERVAL -1 MONTH)
+)
+Day) 'First Friday';
