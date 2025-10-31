@@ -1,0 +1,84 @@
+select addDate(last_day(curdate()),INTERVAL 1 DAY);
+
+select addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH);
+
+select dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH));
+
+-- Friday Query
+
+select addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY) 'First Friday',
+ADDDATE(
+addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY)
+, INTERVAL 7 DAY) 'Second Friday',
+addDate(
+ADDDATE(
+addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY) 'Third Friday',
+
+addDate(
+addDate(
+ADDDATE(
+addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY)
+, INTERVAL 7 DAY) 'Fourth Friday',
+case WHEN
+MONTH(CurDate()) = 
+MONTH(
+addDate(
+addDate(
+addDate(
+ADDDATE(
+addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY))
+ THEN 
+addDate(
+addDate(
+addDate(
+ADDDATE(
+addDate(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH)
+, INTERVAL 6-
+dayofweek(
+addDate(addDate(last_day(curdate()),INTERVAL 1 DAY),INTERVAL -1 MONTH))
+DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY)
+, INTERVAL 7 DAY)
+,INTERVAL 7 DAY)
+ELSE '' END 'Fifth Friday'
+;
+
+
+
+
