@@ -63,6 +63,37 @@ Update Agent set City='Delhi' WHERE FirstName='Sunitha';
 
 update agent set city='Chennai',State='TN' WHERE LastName='Tangvel';
 
+drop table if exists test;
+
+create table Test
+(
+   Id int Primary key Auto_Increment,
+   Mstat INT Check(MStat in (0,1)),
+   description varchar(30)
+);
+
+Insert into Test(Mstat) values(0),(1),(0),(0),(1),(1);
+
+
+update test set description = case Mstat 
+when 0 then 'Unmarried' When 1 then 'Married' end;
+
+-- Write a Query as modify fullName as firstName + ' ' + Mi + ' ' +lastName
+
+update agent set 
+fullname=concat(firstname,' ',mi,' ',lastName);
+
+-- Write a query to modify city as 'chennai' for whose lastname is 'Tangvel'
+
+update agent set city='chennai' where lastname='Tangvel';
+
+-- Write a query to modify city as 'Delhi', state as 'UP, Country as 'India'
+for firstname is 'Sunitha'
+
+Update Agent set city='Delhi',state='UP',Country='India' Where FirstName='Sunitha';
+
+-- Write a query to modify firstname as 'Vinod' mi as 'k' lastname as 'kumar'
+for AgentId 5 
 
 
 
