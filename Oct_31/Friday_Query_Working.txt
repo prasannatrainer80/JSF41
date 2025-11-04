@@ -76,8 +76,7 @@ DAY)
 ,INTERVAL 7 DAY)
 , INTERVAL 7 DAY)
 ,INTERVAL 7 DAY)
-ELSE '' END 'Fifth Friday'
-;
+ELSE '' END 'Fifth Friday';
 
 
 

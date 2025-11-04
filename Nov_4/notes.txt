@@ -1,0 +1,70 @@
+Update : Allows you to modify the table record values. 
+
+syntax : 
+
+Update table_name 
+set field1=value,field2=value ... {Where Condition} 
+
+use jsf41;
+
+drop table if exists student;
+
+create table student
+(
+  sid int primary key auto_increment,
+  Sname varchar(30),
+  Sub1 INT, 
+  Sub2 INT,
+  Sub3 INT,
+  Total numeric(9,2),
+  aveg numeric(9,2)
+);
+
+Insert into Student(Sname,sub1,sub2,sub3) values('Revathi',88,80,77),
+('Venkatrao',87,78,78),('Chetan',77,74,56),('Nandini',87,88,75);
+
+Update Student set Total =sub1+sub2+sub3,aveg=(Sub1+Sub2+Sub3)/3;
+
+select * from Student;
+
+drop table if exists employpayroll;
+
+create table employpayroll
+(
+   EmpId INT Primary Key,
+   Name varchar(30),
+   Salary numeric(9,2),
+   Hra numeric(9,2),
+   Da numeric(9,2),   
+   Ta numeric(9,2),
+   Tax numeric(9,2),  
+   Pf Numeric(9,2),
+   Gross Numeric(9,2),
+   NetPay numeric(9,2)
+);
+Insert into EmployPayroll(empId,name,salary) values(1,'Bhagya',84255),
+(2,'Pavan',88423),(3,'Jyotshna',87234);
+
+Update EmployPayroll set Hra = salary * 0.03, Da = Salary * 0.012,
+         Ta = Salary * 0.0024;
+
+Update EmployPayroll set Tax = salary * 0.07,Pf = Salary * 0.033;
+
+Update EMployPayroll set gross = Salary + Hra + Da + Ta;
+
+Update EmployPayroll set NetPay = Gross - Tax - pf;
+
+-- Modify Agent table City as 'Delhi' for firstName 'Sunitha';
+
+Update Agent set City='Delhi' WHERE FirstName='Sunitha';
+
+-- Modify Agent table City as 'Chennai', State as 'TN' for LastName is 
+' Tangvel'
+
+update agent set city='Chennai',State='TN' WHERE LastName='Tangvel';
+
+
+
+
+
+
