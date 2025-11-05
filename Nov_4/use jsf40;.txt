@@ -1,0 +1,66 @@
+use jsf40;
+
+desc dept;
+
+desc emp;
+
+select Dept.Deptno,Dname,Empno,Ename,Job,Sal
+from Dept INNER JOIN Emp ON Dept.Deptno = Emp.Deptno;
+
+select D.Deptno, Dname, Empno, Ename, Job, Sal
+from Dept D INNER JOIN Emp E ON D.Deptno = E.Deptno;
+
+2) Outer Join : Allows you to display matching and unmatching
+records from the given tables. 
+
+   There are 2 types of outer joins as 
+	
+	(I) Left Outer Join
+
+		All records from the left-side table and matching records 
+from the right side table.  If any child record not found it would be replaced
+with NULL keyword
+
+
+	select Dept.Deptno,Dname,Empno,Ename,Job,Sal
+	from Dept LEFT JOIN Emp ON Dept.Deptno = Emp.Deptno;
+
+select A.AgentId,FirstName,LastName,City,SSN,
+P.PolicyID, AppNumber,ModalPremium,AnnualPremium
+from Agent A LEFT JOIN AgentPolicy AP
+ON A.AgentID= AP.AgentID 
+LEFT JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+	
+	(ii) Right outer Join 
+		All records from the right side table and matching records
+from the left side table. 
+
+	
+	select Dept.Deptno,Dname,Empno,Ename,Job,Sal
+	from Dept RIGHT JOIN Emp ON Dept.Deptno = Emp.Deptno;
+
+select A.AgentId,FirstName,LastName,City,SSN,
+P.PolicyID, AppNumber,ModalPremium,AnnualPremium
+from Agent A RIGHT JOIN AgentPolicy AP
+ON A.AgentID= AP.AgentID 
+RIGHT JOIN Policy P ON P.PolicyID = Ap.PolicyID;
+
+
+3) Cross Join : Generates cartician product of given tables, As table A contains n records and Table B contains m records, then you get (n*m) records.
+
+select * from Agent Cross Join AgentPolicy;
+
+select * from Policy Cross Join AgentPolicy;
+
+
+4) Self Join : If a table joins with itself known as self join. 
+
+select empno,ename,mgr from Emp;
+
+
+select E1.Empno 'Mgr Id', 
+E1.Ename 'Mgr Name', E2.Empno 'Empno', E2.Ename 'Employ Name'
+from Emp E1 INNER JOIN Emp E2 ON
+E1.Empno = E2.Mgr;
+

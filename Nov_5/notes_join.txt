@@ -1,0 +1,20 @@
+Joins : Allows you to extract data from more than one table.  There are various types of joins as 
+
+	(i) Inner Join : Acts as an INTERSECT Operator, used to extract only the common records from the given table(s). 
+
+	syntax : 
+	select field(s) from tabl1 INNER Join Tab2 on 
+	Primary key=foreign key;
+
+	select Dept.Deptno,Dname,Empno,Ename,job,sal
+	from Dept INNER JOIN EMP ON Dept.Deptno = EMp.Deptno;
+
+	select D.Deptno,Dname,Empno,Ename,Job,Sal
+	from Dept D INNER JOIN Emp E ON D.Deptno = E.Deptno;
+
+	(ii) Outer Join
+
+	(iii) Cross Join
+
+	 (iv) Self Join 
+
