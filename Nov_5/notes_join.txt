@@ -12,9 +12,54 @@ Joins : Allows you to extract data from more than one table.  There are various 
 	select D.Deptno,Dname,Empno,Ename,Job,Sal
 	from Dept D INNER JOIN Emp E ON D.Deptno = E.Deptno;
 
-	(ii) Outer Join
 
-	(iii) Cross Join
+	select A.AgentId,FirstName,LastName,City,SSN,
+	P.PolicyId,AppNumber,ModalPremium,AnnualPremium
+	from Agent A INNER JOIN AgentPolicy AP ON
+	A.AgentId = AP.AgentID INNER JOIN Policy P ON
+	P.PolicyId = AP.PolicyID;
 
-	 (iv) Self Join 
 
+	(ii) Outer Join : There are various types of outer joins as 
+	
+	    (i) LEFT JOIN : All records from the LEFT-SIDE table and matching records from the right-side table. If child table values are not there then it would be replaced with NULL keyword.
+	
+	select D.Deptno,Dname,Empno,Ename,Job,Sal
+	from Dept D LEFT JOIN Emp E ON D.Deptno = E.Deptno;
+
+	select A.AgentId,FirstName,LastName,City,SSN,
+	P.PolicyId,AppNumber,ModalPremium,AnnualPremium
+	from Agent A LEFT JOIN AgentPolicy AP ON
+	A.AgentId = AP.AgentID LEFT JOIN Policy P ON
+	P.PolicyId = AP.PolicyID;
+
+
+
+
+	    (ii) RIGHT JOIN : All records from the RIGHT-SIDE table and matching records from the left-side table. If child table values are not there then it would be replaced with NULL keyword.
+	
+	select D.Deptno,Dname,Empno,Ename,Job,Sal
+	from Dept D RIGHT JOIN Emp E ON D.Deptno = E.Deptno;
+
+	select A.AgentId,FirstName,LastName,City,SSN,
+	P.PolicyId,AppNumber,ModalPremium,AnnualPremium
+	from Agent A RIGHT JOIN AgentPolicy AP ON
+	A.AgentId = AP.AgentID RIGHT JOIN Policy P ON
+	P.PolicyId = AP.PolicyID;
+
+	(iii) Cross Join : Displays cartician product of given table records, as table A contains n records and table B contains m records then it generates (n*m) records. 
+
+	select * from agent cross join agentpolicy;
+
+	select * from Policy cross join AgentPolicy;
+
+	 (iv) Self Join : If a table joins with itself known as self join
+
+	select empno,ename,mgr from Emp;
+
+	select E1.Empno 'Mgr No',E1.Ename 'Mgr Name',
+	   E2.Empno 'Empno', E2.Ename 'Emp Name'
+	from Emp E1 INNER JOIN EMP E2 ON E1.Empno = E2.Mgr;
+
+
+	
