@@ -1,0 +1,86 @@
+-- 2nd max salary 
+
+
+select max(sal) from Emp where sal < (select max(sal) 
+from Emp);
+
+select ename from Emp where sal = (
+select max(sal) from Emp where sal < (select max(sal) 
+from Emp));
+
+-- Display 2nd min salary 
+
+select min(sal) from Emp where sal > (select min(sal) 
+from emp);
+ 
+-- Display Employee details whose sal is greater than avg(sal)
+
+select * from Emp where sal >= (select avg(sal) from Emp);
+
+-- Display 2nd max policy record w.r.t. Annualpremium 
+
+select max(annualpremium) from policy where 
+annualpremium < (select max(annualpremium) from policy);
+
+-- Display policyId for which you are getting 2nd max annprem
+
+-- Display Emp details for which Job we have more than 2 employees 
+
+
+select * from Emp where job in(select job from Emp Group By JOB
+Having count(*) > 2);
+
+How to Handle if subquery returns more than one value.
+
+-- Display Idle Agents (AgentID exists in Agent table not in AgentPolicy) 
+
+select * from Agent WHERE AgentID <> (select distinct AgentId from AgentPolicy);
+
+select * from Agent WHERE AgentID NOT IN (select distinct AgentId from AgentPolicy);
+
+ALL operator acts as AND OPerator. 
+
+AgentID <> ALL(1,2,4,5)
+
+AgentId <> 1 AND AgentId <> 2 AND AgentId <> 4 AND AgentId <> 5
+
+select * from Agent where agentID <> ALL(select distinct AgenId From 
+agentPolicy);
+
+-- Display matching records from Agent and AgentPolicy Tables 
+
+select * from Agent where AgentID = ANY(select distinct AgentId from 
+AgentPolicy);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
