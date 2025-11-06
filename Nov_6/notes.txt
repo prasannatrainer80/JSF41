@@ -52,6 +52,13 @@ agentPolicy);
 select * from Agent where AgentID = ANY(select distinct AgentId from 
 AgentPolicy);
 
+-- Display employee details who are not taken leave 
+
+select * from Employee where Empno <> ALL(select disinct empno from LeaveDetails);
+
+
+
+
 
 
 
