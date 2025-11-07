@@ -1,0 +1,13 @@
+-- Apply INNER Join between Customer and Wallet tables
+
+
+-- Apply INNER Join Between Customer and Orders tables
+
+desc Menu;
+
+Desc Orders;
+
+Desc Customer;
+
+-- Apply Inner join for above tables
+-- Apply Join for Vendor and Orders table
